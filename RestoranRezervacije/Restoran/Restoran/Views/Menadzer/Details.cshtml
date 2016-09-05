@@ -1,0 +1,33 @@
+﻿@model Restoran.Models.MENADZER
+
+@{
+    ViewBag.Title = "Podaci menadzera";
+}
+
+<h3>Podaci o menadzeru</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ASD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ASD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDMENADZERA }) |
+    @Html.ActionLink("Povratak nazad", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Restoran.Models.MENADZER>
+
+@{
+    ViewBag.Title = "Spisak menadzera";
+}
+
+@Html.ActionLink("RESTORANI", "Index", "Restoran", null, null) |
+@Html.ActionLink("MOJ PROFIL", "Profil", "Profil") |
+
+<h2>Spisak menadzera</h2>
+
+<p>
+    @Html.ActionLink("Dodaj novog menadzera", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ASD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ASD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RESTORAN.NAZIV_RESTORANA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IDMENADZERA }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IDMENADZERA }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IDMENADZERA })
+        </td>
+    </tr>
+}
+
+</table>

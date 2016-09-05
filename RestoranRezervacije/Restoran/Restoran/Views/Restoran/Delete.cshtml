@@ -1,0 +1,69 @@
+﻿@model Restoran.Models.RESTORAN
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h3>Da li ste sigurni da zelite da obrisete restoran?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIV_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIV_RESTORANA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESA_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESA_RESTORANA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAIL_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAIL_RESTORANA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TELEFON_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TELEFON_RESTORANA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROSECNA_OCENA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROSECNA_OCENA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OPIS_RESTPRANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OPIS_RESTPRANA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obrisi" class="btn btn-default" /> |
+            @Html.ActionLink("Povratak nazad", "Index")
+        </div>
+    }
+</div>
