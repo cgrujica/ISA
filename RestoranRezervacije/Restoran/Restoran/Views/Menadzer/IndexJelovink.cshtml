@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Restoran.Models.JELOVNIK>
+
+@{
+    ViewBag.Title = "IndexJelovink";
+}
+
+<h3>Sva jela</h3>
+
+<p>
+    @Html.ActionLink("Create New", "DodajJelo")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NAZIV_JELA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OPIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CENA_JELA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAZIV_JELA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OPIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CENA_JELA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RESTORAN.NAZIV_RESTORANA)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

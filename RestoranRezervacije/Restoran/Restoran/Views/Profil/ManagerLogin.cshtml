@@ -1,0 +1,75 @@
+﻿@model Restoran.ModelView.ManagerProfile
+
+@{
+    ViewBag.Title = "Profil menadzera";
+}
+
+<h2>Profil menadzera</h2>
+
+<div>
+    <dt>
+        @Html.DisplayNameFor(model => model.menadzer.IDMENADZERA)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.menadzer.IDMENADZERA)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.restoran.NAZIV_RESTORANA)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.restoran.NAZIV_RESTORANA)
+    </dd>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ })
+</p>
+
+<p>
+    @Html.ActionLink("Dodaj jelo", "DodajJelo")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+           Naziv jela
+        </th>
+        <th>
+            Opis
+        </th>
+        <th>
+            Cena jela
+        </th>
+        <th>
+            Naziv restorana
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.jelovnici)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAZIV_JELA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OPIS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CENA_JELA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RESTORAN.NAZIV_RESTORANA)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>
+

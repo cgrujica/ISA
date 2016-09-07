@@ -71,15 +71,42 @@ namespace Restoran.Controllers
         [HttpPost]
         public ActionResult LogIn(GOST gost)
         {
-            if (db.GOSTs.Where(x => x.EMAIL_GOSTA == gost.EMAIL_GOSTA).Select(x => x.PASS_GOSTA).Single() == gost.PASS_GOSTA)
+            try
             {
-                Session["idGosta"] = gost.EMAIL_GOSTA;
-                return RedirectToAction("Profil","Profil");
+                if (db.GOSTs.Where(x => x.EMAIL_GOSTA == gost.EMAIL_GOSTA).Select(x => x.PASS_GOSTA).Single() == gost.PASS_GOSTA)
+                {
+                    Session["idGosta"] = gost.EMAIL_GOSTA;
+                    return RedirectToAction("Profil", "Profil");
+                }
+                else
+                {
+                    return RedirectToAction("LogIn");
+                }
+        
+
+
             }
-            else
+            catch (Exception)
             {
+                try
+                {
+                    if (db.MENADZERs.Where(x => x.IDMENADZERA == gost.EMAIL_GOSTA).Select(x => x.ASD).Single() == gost.PASS_GOSTA)
+                    {
+                        Session["idMenadzera"] = gost.EMAIL_GOSTA;
+                        return RedirectToAction("ManagerLogin", "Profil");
+                    }
+                    else
+                    {
+                        return RedirectToAction("Login");
+                    }
+                }
+                catch (Exception)
+                {
+
+                    return RedirectToAction("LogIn");
+                }
                 return RedirectToAction("LogIn");
-            }
+            }          
            
              return null;
         }

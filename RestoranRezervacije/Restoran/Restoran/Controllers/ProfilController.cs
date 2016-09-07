@@ -48,5 +48,15 @@ namespace Restoran.Controllers
         {
             return View();
         }
+        public ActionResult ManagerLogin()
+        {
+            string idMenagera = Session["idMenadzera"].ToString();
+            ManagerProfile mp = new ManagerProfile();
+
+            mp.menadzer = db.MENADZERs.Where(z => z.IDMENADZERA == idMenagera).Single();
+            mp.restoran = db.RESTORANs.Where(z => z.ID_RESTORANA == mp.menadzer.ID_RESTORANA).Single();
+            mp.jelovnici = db.JELOVNIKs.Where(x=>x.ID_RESTORANA ==mp.restoran.ID_RESTORANA).ToList();
+            return View(mp);
+        }
     }
 }

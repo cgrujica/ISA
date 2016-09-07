@@ -98,5 +98,31 @@ namespace Restoran.Controllers
             return View(menadzer);
         }
 
+
+        public ActionResult DodajJelo()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult DodajJelo(JELOVNIK jelo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.JELOVNIKs.Add(jelo);
+                db.SaveChanges();
+                return RedirectToAction("Profil");
+            }
+            return View(jelo);
+        }
+
+
+        public ActionResult IndexJelovink()
+        {
+            return View(db.JELOVNIKs.ToList());
+        }
+
+
+
     }
 }

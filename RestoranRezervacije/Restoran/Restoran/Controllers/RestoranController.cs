@@ -97,10 +97,5 @@ namespace Restoran.Controllers
             return RedirectToAction("Index");
         }
 
-
-
-
-
-
     }
 }

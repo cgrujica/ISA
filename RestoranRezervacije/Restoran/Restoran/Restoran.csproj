@@ -228,6 +228,7 @@
     <Compile Include="Models\STO.cs">
       <DependentUpon>ModelRestorana.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelView\ManagerProfile.cs" />
     <Compile Include="ModelView\Profil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -260,6 +261,10 @@
     <Content Include="Views\Menadzer\Delete.cshtml" />
     <Content Include="Views\Menadzer\Edit.cshtml" />
     <Content Include="Views\Menadzer\Details.cshtml" />
+    <Content Include="Views\Profil\ManagerProfile.cshtml" />
+    <Content Include="Views\Profil\ManagerLogin.cshtml" />
+    <Content Include="Views\Menadzer\DodajJelo.cshtml" />
+    <Content Include="Views\Menadzer\IndexJelovink.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
