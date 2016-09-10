@@ -1,0 +1,53 @@
+﻿@model Restoran.Models.JELOVNIK
+
+@{
+    ViewBag.Title = "DeleteJela";
+}
+
+<h3>Da li ste sigurni da zelite da obisete ovo jelo?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIV_JELA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIV_JELA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OPIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OPIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CENA_JELA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CENA_JELA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Obrisi" class="btn btn-default" /> |
+            @Html.ActionLink("Povratak nazad", "ManagerLogin")
+        </div>
+    }
+</div>

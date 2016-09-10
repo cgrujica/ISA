@@ -28,7 +28,7 @@
 </p>
 
 <p>
-    @Html.ActionLink("Dodaj jelo", "DodajJelo")
+    @Html.ActionLink("Dodaj jelo", "DodajJelo", "Menadzer")
 </p>
 
 <table class="table">
@@ -64,9 +64,9 @@
                 @Html.DisplayFor(modelItem => item.RESTORAN.NAZIV_RESTORANA)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "EditJela", new { id = item.ID_JELA }) |
+                @Html.ActionLink("Details", "DetailsJela", new { id = item.ID_JELA }) |
+                @Html.ActionLink("Delete", "DeleteJela", new {  id=item.ID_JELA  })
             </td>
         </tr>
     }

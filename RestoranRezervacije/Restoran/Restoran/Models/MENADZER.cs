@@ -14,10 +14,11 @@ namespace Restoran.Models
     
     public partial class MENADZER
     {
-        [System.ComponentModel.DisplayName("ID Menadzera")]
+        [System.ComponentModel.DisplayName("E-mail menadzera")]
         public string IDMENADZERA { get; set; }
+        [System.ComponentModel.DisplayName("Ime restorana")]
         public string ID_RESTORANA { get; set; }
-        [System.ComponentModel.DisplayName("Ime menadzera")]
+        [System.ComponentModel.DisplayName("Lozinka")]
         public string ASD { get; set; }
     
         public virtual RESTORAN RESTORAN { get; set; }

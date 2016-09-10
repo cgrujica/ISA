@@ -1,0 +1,49 @@
+﻿@model Restoran.Models.JELOVNIK
+
+@{
+    ViewBag.Title = "DetailsJela";
+}
+
+<h3>Detalji jela</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAZIV_JELA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAZIV_JELA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OPIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OPIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CENA_JELA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CENA_JELA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RESTORAN.NAZIV_RESTORANA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditJela", new { id=Model.ID_JELA }) |
+    @Html.ActionLink("Povratak nazad", "ManagerLogin")
+</p>

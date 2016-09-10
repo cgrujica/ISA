@@ -14,10 +14,15 @@ namespace Restoran.Models
     
     public partial class JELOVNIK
     {
+        [System.ComponentModel.DisplayName("ID restorana")]
         public string ID_RESTORANA { get; set; }
+        [System.ComponentModel.DisplayName("ID jela")]
         public string ID_JELA { get; set; }
+        [System.ComponentModel.DisplayName("Naziv jela")]
         public string NAZIV_JELA { get; set; }
+        [System.ComponentModel.DisplayName("Opis jela")]
         public string OPIS { get; set; }
+        [System.ComponentModel.DisplayName("Cena jela")]
         public decimal CENA_JELA { get; set; }
     
         public virtual RESTORAN RESTORAN { get; set; }

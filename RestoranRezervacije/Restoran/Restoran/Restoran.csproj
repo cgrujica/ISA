@@ -265,6 +265,9 @@
     <Content Include="Views\Profil\ManagerLogin.cshtml" />
     <Content Include="Views\Menadzer\DodajJelo.cshtml" />
     <Content Include="Views\Menadzer\IndexJelovink.cshtml" />
+    <Content Include="Views\Profil\DetailsJela.cshtml" />
+    <Content Include="Views\Profil\EditJela.cshtml" />
+    <Content Include="Views\Profil\DeleteJela.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -274,7 +277,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Mail\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

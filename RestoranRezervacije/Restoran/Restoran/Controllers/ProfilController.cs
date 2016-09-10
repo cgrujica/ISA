@@ -44,19 +44,80 @@ namespace Restoran.Controllers
 
             return null;
         }
-        public ActionResult Edit()
-        {
-            return View();
-        }
-        public ActionResult ManagerLogin()
-        {
-            string idMenagera = Session["idMenadzera"].ToString();
-            ManagerProfile mp = new ManagerProfile();
 
+        /* POCETNA STRANA MENADZERA
+         * Ulogaovani menadzer, profil menadzera i u kom restoranu je on menadzer.
+         */
+        public ActionResult ManagerLogin()
+        {            
+            ManagerProfile mp = new ManagerProfile();
+            string idMenagera = Session["idMenadzera"].ToString();
             mp.menadzer = db.MENADZERs.Where(z => z.IDMENADZERA == idMenagera).Single();
             mp.restoran = db.RESTORANs.Where(z => z.ID_RESTORANA == mp.menadzer.ID_RESTORANA).Single();
             mp.jelovnici = db.JELOVNIKs.Where(x=>x.ID_RESTORANA ==mp.restoran.ID_RESTORANA).ToList();
             return View(mp);
         }
+
+
+        /* DETAILS
+         * Menadzer details jelo.
+         */
+        public ActionResult DetailsJela(string id)
+        {
+            JELOVNIK jelovnik = db.JELOVNIKs.Where(x => x.ID_JELA == id).Single();
+            if (jelovnik == null)
+            {
+                return HttpNotFound();
+            }
+            return View(jelovnik);
+        }
+
+        /* EDIT
+         * Izmena jela od strane menadzera.
+         */
+        public ActionResult EditJela(string id)
+        {
+            JELOVNIK jelo = db.JELOVNIKs.Where(x => x.ID_JELA == id).Single();
+            if (jelo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(jelo);
+        }  
+
+        [HttpPost]
+        public ActionResult EditJela(JELOVNIK jelo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(jelo).State = Help.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ManagerProfil");
+            }
+            return View(jelo);
+        }
+
+        /* DELETE
+         * Menadzer restorana brise jelo.
+         */
+        public ActionResult DeleteJela(string id)
+        {
+            JELOVNIK jelo = db.JELOVNIKs.Where(x => x.ID_JELA == id).Single();
+            if (jelo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(jelo);
+        }
+
+        [HttpPost, ActionName("DeleteJela")]
+        public ActionResult DeleteConfirmed(string id)
+        {
+            JELOVNIK jelo = db.JELOVNIKs.Where(x => x.ID_JELA == id).Single();
+            db.JELOVNIKs.Remove(jelo);
+            db.SaveChanges();
+            return RedirectToAction("ManagerLogin");
+        }
+
     }
 }

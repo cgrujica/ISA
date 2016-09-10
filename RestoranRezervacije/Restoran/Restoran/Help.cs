@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -18,6 +19,7 @@ namespace Restoran
         public static uint vremeTrajanja;
         public static string idStola;
 
+        public static EntityState Modified { get; internal set; }
 
         public static string encrypt(string ToEncrypt)
         {
